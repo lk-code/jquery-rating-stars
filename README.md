@@ -24,3 +24,29 @@ var ratingOptions = {
     }
 };
 ```
+
+### default html template 
+
+```
+<div class="rating-stars block" id="another-rating">
+    <input type="hidden" class="rating-value" name="stars-value" id="stars-value" value="2">
+    <!-- set the input-value to set the default value -->
+    <div class="rating-stars-container">
+        <div class="rating-star">
+            <i class="fa fa-star"></i>
+        </div>
+        <div class="rating-star">
+            <i class="fa fa-star"></i>
+        </div>
+        <div class="rating-star">
+            <i class="fa fa-star"></i>
+        </div>
+        <div class="rating-star">
+            <i class="fa fa-star"></i>
+        </div>
+        <div class="rating-star">
+            <i class="fa fa-star"></i>
+        </div>
+    </div>
+</div>
+```

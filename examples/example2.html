@@ -73,11 +73,16 @@
         <div class="col-md-5 p-lg-5 mx-auto my-5">
             <h3>rating stars with changing event</h3>
             <p>
-                ratingChanged:
+                ratingChanged (click on a star):
                 <span id="ratingChanged"></span>
-                <br /> ratingClicked:
-                <span id="ratingClicked"></span>
-                <br />
+            </p>
+            <p>
+                ratingOnEnter (mouse enter on a star):
+                <span id="ratingOnEnter"></span>
+            </p>
+            <p>
+                ratingOnLeave (leave a star):
+                <span id="ratingOnLeave"></span>
             </p>
             <div class="rating-stars block">
                 <input type="number" readonly="readonly" class="form-control rating-value" name="rating-stars-value" id="rating-stars-value">
@@ -136,8 +141,12 @@
             $("#ratingChanged").html(data.ratingValue);
         });
 
-        $(".rating-stars").on("ratingClicked", function (ev, data) {
-            $("#ratingClicked").html(data.ratingValue);
+        $(".rating-stars").on("ratingOnEnter", function (ev, data) {
+            $("#ratingOnEnter").html(data.ratingValue);
+        });
+
+        $(".rating-stars").on("ratingOnLeave", function (ev, data) {
+            $("#ratingOnLeave").html(data.ratingValue);
         });
     </script>
 </body>

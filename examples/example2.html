@@ -71,8 +71,15 @@
         <a class="py-2 d-none d-md-inline-block" href="example2.html">events</a>
 
         <div class="col-md-5 p-lg-5 mx-auto my-5">
-            <h3>rating stars without default value</h3>
-            <div class="rating-stars block" id="rating">
+            <h3>rating stars with changing event</h3>
+            <p>
+                ratingChanged:
+                <span id="ratingChanged"></span>
+                <br /> ratingClicked:
+                <span id="ratingClicked"></span>
+                <br />
+            </p>
+            <div class="rating-stars block">
                 <input type="number" readonly="readonly" class="form-control rating-value" name="rating-stars-value" id="rating-stars-value">
                 <div class="rating-stars-container">
                     <div class="rating-star">
@@ -94,68 +101,6 @@
             </div>
             <br />
             <br />
-
-            <h3>rating stars with default value</h3>
-            <div class="rating-stars block" id="another-rating">
-                <input type="number" readonly="readonly" class="form-control rating-value" name="another-rating-stars-value" id="another-rating-stars-value"
-                    value="2">
-                <div class="rating-stars-container">
-                    <div class="rating-star">
-                        <i class="fa fa-star"></i>
-                    </div>
-                    <div class="rating-star">
-                        <i class="fa fa-star"></i>
-                    </div>
-                    <div class="rating-star">
-                        <i class="fa fa-star"></i>
-                    </div>
-                    <div class="rating-star">
-                        <i class="fa fa-star"></i>
-                    </div>
-                    <div class="rating-star">
-                        <i class="fa fa-star"></i>
-                    </div>
-                </div>
-            </div>
-            <br />
-            <br />
-
-            <h3>more rating stars</h3>
-            <div class="rating-stars block" id="more-rating">
-                <input type="number" readonly="readonly" class="form-control rating-value" name="more-rating-stars-value" id="more-rating-stars-value">
-                <div class="rating-stars-container">
-                    <div class="rating-star">
-                        <i class="fa fa-star"></i>
-                    </div>
-                    <div class="rating-star">
-                        <i class="fa fa-star"></i>
-                    </div>
-                    <div class="rating-star">
-                        <i class="fa fa-star"></i>
-                    </div>
-                    <div class="rating-star">
-                        <i class="fa fa-star"></i>
-                    </div>
-                    <div class="rating-star">
-                        <i class="fa fa-star"></i>
-                    </div>
-                    <div class="rating-star">
-                        <i class="fa fa-star"></i>
-                    </div>
-                    <div class="rating-star">
-                        <i class="fa fa-star"></i>
-                    </div>
-                    <div class="rating-star">
-                        <i class="fa fa-star"></i>
-                    </div>
-                    <div class="rating-star">
-                        <i class="fa fa-star"></i>
-                    </div>
-                    <div class="rating-star">
-                        <i class="fa fa-star"></i>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -186,6 +131,14 @@
         };
 
         $(".rating-stars").ratingStars(ratingOptions);
+
+        $(".rating-stars").on("ratingChanged", function (ev, data) {
+            $("#ratingChanged").html(data.ratingValue);
+        });
+
+        $(".rating-stars").on("ratingClicked", function (ev, data) {
+            $("#ratingClicked").html(data.ratingValue);
+        });
     </script>
 </body>
 

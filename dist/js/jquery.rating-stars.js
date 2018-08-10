@@ -60,6 +60,10 @@ jQuery.fn.ratingStars = function( options ) {
                 }
                 i++;
             });
+
+            $(container).trigger("ratingChanged", {
+                ratingValue: (elementIndex + 1)
+            });
         },
     
         onStarLeave: function(starElement, container) {
@@ -88,6 +92,10 @@ jQuery.fn.ratingStars = function( options ) {
     
             // set the rating value to the form
             $(container).children(settings.selectors.targetFormElementSelector).val(elementIndex + 1);
+
+            $(container).trigger("ratingClicked", {
+                ratingValue: (elementIndex + 1)
+            });
         }
     };
  

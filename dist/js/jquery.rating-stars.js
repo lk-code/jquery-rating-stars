@@ -60,14 +60,23 @@ jQuery.fn.ratingStars = function( options ) {
                 }
                 i++;
             });
+
+            $(container).trigger("ratingOnEnter", {
+                ratingValue: (elementIndex + 1)
+            });
         },
     
         onStarLeave: function(starElement, container) {
             var me = this;
+            var elementIndex = $(starElement).index();
     
             // remove all hover classes
             $(container).children(settings.starsSelector).children(settings.starSelector).removeClass(settings.selectors.starHoverClass);
             $(container).children(settings.starsSelector).children(settings.starSelector).removeClass(settings.selectors.starNoHoverClass);
+
+            $(container).trigger("ratingOnLeave", {
+                ratingValue: (elementIndex + 1)
+            });
         },
     
         onStarSelected: function(starElement, container) {
@@ -88,6 +97,10 @@ jQuery.fn.ratingStars = function( options ) {
     
             // set the rating value to the form
             $(container).children(settings.selectors.targetFormElementSelector).val(elementIndex + 1);
+
+            $(container).trigger("ratingChanged", {
+                ratingValue: (elementIndex + 1)
+            });
         }
     };
  

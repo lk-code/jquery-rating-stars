@@ -50,3 +50,64 @@ var ratingOptions = {
     </div>
 </div>
 ```
+
+### events
+
+you can listen on some events to work with the plugin
+
+#### ratingChanged
+this event is triggered if the user select a star (click or touch on a star)
+
+```
+$(".rating-stars").ratingStars(ratingOptions);
+
+$(".rating-stars").on("ratingChanged", function (ev, data) {
+    // dome something
+});
+```
+
+data is an object like this:
+
+```
+{
+    ratingValue: 4
+}
+```
+
+#### ratingOnEnter
+this event is triggered if the user hovers a star
+
+```
+$(".rating-stars").ratingStars(ratingOptions);
+
+$(".rating-stars").on("ratingOnEnter", function (ev, data) {
+    // dome something
+});
+```
+
+data is an object like this:
+
+```
+{
+    ratingValue: 4
+}
+```
+
+#### ratingOnLeave
+this event is triggered if the user leaves a star
+
+```
+$(".rating-stars").ratingStars(ratingOptions);
+
+$(".rating-stars").on("ratingOnLeave", function (ev, data) {
+    // dome something
+});
+```
+
+data is an object like this:
+
+```
+{
+    ratingValue: 4
+}
+```
